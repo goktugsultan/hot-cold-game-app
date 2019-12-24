@@ -2,6 +2,8 @@ import React , {Component}from 'react';
 import { withTranslation } from 'react-i18next';
 import Form from './components/Form'
 import Progress from './components/Progress'
+import HowToPlayDialog from './components/HowToPlayDialog'
+
 import { generateRandomNumber } from './util'
 import 'normalize.css';
 import {Grid, Typography, Paper, Divider} from '@material-ui/core'
@@ -47,6 +49,7 @@ import {Grid, Typography, Paper, Divider} from '@material-ui/core'
                 </Typography>
                 <Divider style={{margin:'20px 0'}}/>
                 <Form returnGuessToApp={guess => this.updateAppState(guess)}/>
+                <HowToPlayDialog/>
                 <Progress attempt={attempt} guessList={guessList}></Progress>
               </Paper>
           </Grid>

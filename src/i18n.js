@@ -6,9 +6,11 @@ const resources = {
   en: {
     translation: {
       "hot_or_cold": "HOT or COLD",
-      "name":"Goktug",
       "hot":"Hot",
-      "cold":"Cold"
+      "cold":"Cold",
+      "guess":"Guess",
+      "how_to_play":"How to Play",
+      "game_rules":"Game Rules"
     }
   }
 };
