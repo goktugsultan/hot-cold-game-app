@@ -25,12 +25,6 @@ const Form = ({returnGuessToApp}) => {
             style={{background:"linear-gradient(to right, red 50%,blue 50%)",color:'white'}}
             >Guess
             </Button>
-            <Button
-            fullWidth  
-            variant="contained"
-            style={{background:"blue",color:'white',marginTop:'10px'}}
-            >How to Play
-            </Button>
         </form>
     )
 }
