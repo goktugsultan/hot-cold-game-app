@@ -18,7 +18,7 @@ export default function HowToPlayDialog() {
     setOpen(false);
   };
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -43,7 +43,7 @@ export default function HowToPlayDialog() {
               <li>The machine picks a random number between 1 to 100 and keeps it hidden</li>
               <li>You need to guess until you can find the hidden secret number</li>
               <li>You will get feedback on how close or far your guess is in the form of the following keywords
-                ("cold", "warm", "hot", "extremely hot").
+                ("cold", hot").
               </li>
             </ol>
             Everything clear ?

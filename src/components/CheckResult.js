@@ -16,10 +16,10 @@ const Situation = ({ isHot, isCold, isWon }) => {
                 type="submit"
                 variant="contained"
                 style={{
-                    background: situation == 'HOT' ? 'red' :
-                                situation == 'COLD' ? 'blue' :
-                                situation == 'YouWon' ? 'yellow' : "linear-gradient(222deg, rgba(20,54,223,1) 22%, rgba(235,6,6,1) 78%)",
-                    color: 'white'
+                    background: situation === 'HOT' ? 'red' :
+                                situation === 'COLD' ? 'blue' :
+                                situation === 'YouWon' ? 'yellow' : "linear-gradient(222deg, rgba(20,54,223,1) 22%, rgba(235,6,6,1) 78%)",
+                    color: situation !== 'YouWon' ? 'white' : 'black'
                 }}
             >
                 <ResultBoard text={situation} />
