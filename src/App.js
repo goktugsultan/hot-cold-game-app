@@ -3,6 +3,7 @@ import { withTranslation } from 'react-i18next';
 import Form from './components/Form'
 import Progress from './components/Progress'
 import HowToPlayDialog from './components/HowToPlayDialog'
+import CheckResult from './components/CheckResult'
 
 import { generateRandomNumber } from './util'
 import 'normalize.css';
@@ -18,7 +19,6 @@ class App extends Component {
     isHot: false,
     isCold: false,
     isWon: false
-
   }
 
   updateAppState = (guess) => {
@@ -31,6 +31,7 @@ class App extends Component {
       guess: guess,
       allGuesses: [...prevState.allGuesses, { guess }],
       attempt: prevState.attempt + 1,
+
     }))
 
     if (absDiff < 10 && absDiff > 0) {
@@ -54,16 +55,21 @@ class App extends Component {
     ))
     const { t } = this.props;
     return (
-      <Grid container style={{ height: '100vh', background: "linear-gradient(to right, red 50%,blue 50%)" }} justify="center" alignItems="center">
+      <Grid container style={{ height: '100vh', background: "linear-gradient(222deg, rgba(20,54,223,1) 22%, rgba(235,6,6,1) 78%)" }} justify="center" alignItems="center">
         <Grid item xs={4}>
           <Paper style={{ padding: '50px' }} elevation={6}>
-            <Typography align="center" variant="h4" gutterBottom>
-              {t('hot_or_cold')}
+            <Typography align="center" variant="h4" gutterBottom >
+              <span style={{ color: 'red' }}>{t('hot')}</span> or <span style={{ color: 'blue' }}>{t('cold')}</span>
             </Typography>
             <Divider style={{ margin: '20px 0' }} />
+            <CheckResult
+              isHot={this.state.isHot}
+              isCold={this.state.isCold}
+              isWon={this.state.isWon}
+            />
             <Form returnGuessToApp={guess => this.updateAppState(guess)} />
             <HowToPlayDialog />
-            {this.state.isHot ? t('hot') : this.state.isCold ? t('cold') : this.state.isWon ? 'kazandın' : 'oyun baslıyor'}
+
             <Progress attempt={attempt} guessList={guessList}></Progress>
           </Paper>
         </Grid>
