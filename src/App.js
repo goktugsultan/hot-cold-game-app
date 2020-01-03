@@ -7,7 +7,7 @@ import CheckResult from './components/CheckResult'
 
 import { generateRandomNumber } from './util'
 import 'normalize.css';
-import { Grid, Typography, Paper, Divider } from '@material-ui/core'
+import { Grid, Typography, Paper, Divider, Button } from '@material-ui/core'
 
 
 class App extends Component {
@@ -45,6 +45,17 @@ class App extends Component {
     }
   }
 
+  removeGuess = () => {
+    this.setState({
+      generatedNumber: generateRandomNumber(),
+      isHot: false,
+      isCold: false,
+      isWon: false,
+      attempt: 0,
+      allGuesses: [],
+    })
+  }
+
 
   render() {
     const { allGuesses, attempt } = this.state
@@ -68,9 +79,17 @@ class App extends Component {
               isWon={this.state.isWon}
             />
             <Form returnGuessToApp={guess => this.updateAppState(guess)} />
-            <HowToPlayDialog />
-
             <Progress attempt={attempt} guessList={guessList}></Progress>
+            <HowToPlayDialog />
+            <Button
+              fullWidth
+              type="submit"
+              variant="contained"
+              onClick={this.removeGuess}
+              style={{ background: "blue", color: 'white', marginTop: '10px' }}
+            >{t('reset')}
+            </Button>
+
           </Paper>
         </Grid>
       </Grid>
